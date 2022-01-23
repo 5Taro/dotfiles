@@ -1,0 +1,1 @@
+/home/tarou/dotfiles/.vim
