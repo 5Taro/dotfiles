@@ -1,16 +1,3 @@
-"for plugin in ~/.cache/dein/repos/github.com/
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/*
-set runtimepath+=~/.cache/dein/repos/github.com/matsui54/*
-set runtimepath+=~/.cache/dein/repos/github.com/vim-denops/*
-set runtimepath+=~/.cache/dein/repos/github.com/tomasr/*
-
-runtime! settings/*.vim
-"dictionary"
-"augroup vimrc
-"	autocmd!
-"	autocmd BufNewFile,BufRead *.c set dictionary=$HOME/.vim/dict/c
-"augroup END
-"set complete=.,w,b,u,t,i,k
 
 "dein Scripts-----------------------------
 if &compatible
@@ -41,3 +28,12 @@ endif
 "call map(dein#check_clean(), "delete(v:val, 'rf')")
 
 "End dein Scripts-------------------------
+
+runtime! setting/*.vim
+
+"dictionary"
+"augroup vimrc
+"	autocmd!
+"	autocmd BufNewFile,BufRead *.c set dictionary=$HOME/.vim/dict/c
+"augroup END
+"set complete=.,w,b,u,t,i,k
