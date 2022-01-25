@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+fpath+=~/.zfunc
+
 for zfile in ~/dotfiles/.zsh/*.zsh
 do
 	source "$zfile"
@@ -12,8 +14,6 @@ done
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*:default' menu select=1
-
-eval "$(dircolors -b)"
 
 #zsh-autosuggestions
 bindkey '^j' autosuggest-accept
@@ -49,3 +49,5 @@ zinit light "romkatv/powerlevel10k"
 #zinit light "b4b4r07/enhancd"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH="$HOME/.poetry/bin:$PATH"

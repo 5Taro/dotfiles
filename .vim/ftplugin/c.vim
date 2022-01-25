@@ -9,10 +9,9 @@ inoremap = <Space>=<Space>
 inoremap +  <Space>+<Space>
 inoremap ++ ++;
 inoremap -- --;
-inoremap -> ->;
+inoremap .. ->;
 inoremap - <Space>-<Space>
 inoremap ** <Space>*<Space>
-inoremap / <Space>/<Space>
 inoremap %% <Space>%<Space>
 inoremap <= <Space><=<Space>
 inoremap >= <Space>>=<Space>
