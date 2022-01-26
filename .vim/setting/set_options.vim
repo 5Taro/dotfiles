@@ -13,4 +13,5 @@ set visualbell t_vb=
 set incsearch
 set autoread
 set scrolloff=10
+set splitbelow
 "set nrforrmats=alpha

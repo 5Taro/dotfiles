@@ -10,7 +10,7 @@ set list listchars=tab:\¦\
 let g:ale_sign_column_always  =  1
 
 "lightline"
+"
 let g:lightline = {
-	\ 'colorscheme': 'wombat',
-	\ }
-
+		\ 'colorscheme': 'wombat',
+		\}
