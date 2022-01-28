@@ -18,7 +18,7 @@ repo = 'itchyny/lightline.vim'
 repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
