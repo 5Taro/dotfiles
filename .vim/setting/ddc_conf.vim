@@ -30,11 +30,14 @@ call ddc#enable()
 
 call popup_preview#enable()
 
-call signature_help#enable()
+"call signature_help#enable()
 let g:lsp_signature_help_enabled = 0
-let g:lsp_signature_help_condig = {
-			\'style': "virtual",
-			\}
+"let g:lsp_signature_help_config = {
+"			\ 'style': "virtual",
+"			\}
+"let g:lsp_signature_help_config = {
+"			\ 'style': "currentLabelOnly",
+"			\}
 
 inoremap <C-z>   <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <C-a>   <Cmd>call pum#map#insert_relative(-1)<CR>
