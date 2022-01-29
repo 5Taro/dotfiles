@@ -1,18 +1,19 @@
 
 call ddc#custom#patch_global('completionMenu', 'pum.vim')
 
-call ddc#custom#patch_global('sources', ['around','vim-lsp'])
+call ddc#custom#patch_global('sources', ['around','vim-lsp', 'buffer'])
 call ddc#custom#patch_global('sourceOptions', {
 			\ '_': {
 				\   'matchers': ['matcher_fuzzy'],
 				\   'sorters': ['sorter_fuzzy'],
 				\   'converters': ['converter_remove_overlap', 'converter_fuzzy'],
 				\},
-			\ 'around': {'mark': 'A'},
 			\ 'vim-lsp': {
 				\   'matchers': ['matcher_head'],
-				\   'mark': 'LSP',
+				\   'mark': 'Lsp',
 				\ },
+			\ 'around': {'mark': 'A'},
+			\ 'buffer': {'mark': 'Buf'},
 				\})
 
 "call ddc#custom#patch_filetype(['c'], 'sources', ['around', 'clangd','vim-lsp'])
@@ -21,9 +22,14 @@ call ddc#custom#patch_global('sourceOptions', {
 "      \ })
 
 call ddc#custom#patch_global('filterParams', {
-			\   'converter_fuzzy': {
+			\ 'converter_fuzzy': {
 				\     'hlGroup': 'SpellBad'
-				\   }
+				\   },
+			\ 'buffer': {
+				\   'requireSameFiletype': v:false,
+				\   'fromAltBuf': v:true,
+				\   'forceCollect': v:true,
+				\ },
 				\ })
 
 call ddc#enable()

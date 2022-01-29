@@ -1,6 +1,6 @@
 
-let b:ale_linters = ['flake8', 'pylint']
-let b:ale_fixers = ['autopep8', 'black', 'isort']
+"let b:ale_linters = ['flake8', 'pylint']
+"let b:ale_fixers = ['autopep8', 'black', 'isort']
 nnoremap <silent><Leader>x <Plug>(ale_fix)
 
 inoremap // //
@@ -67,3 +67,44 @@ function PyResultFunc(...)
 		endif
 	endif
 endfunction
+
+function! Preserve(command)
+	" Save the last search.
+	let search = @/
+	" Save the current cursor position.
+	let cursor_position = getpos('.')
+	" Save the current window position.
+	normal! H
+	let window_position = getpos('.')
+	call setpos('.', cursor_position)
+	" Execute the command.
+	execute a:command
+	" Restore the last search.
+	let @/ = search
+	" Restore the previous window position.
+	call setpos('.', window_position)
+	normal! zt
+	" Restore the previous cursor position.
+	call setpos('.', cursor_position)
+endfunction
+
+command! Autopep8 call Autopep8Func()
+
+function! Autopep8Func()
+	call Preserve(':silent %!autopep8 --ignore=E501 -')
+endfunction
+
+nnoremap<S-f> :Autopep8<CR>
+
+let g:lsp_settings = {
+			\  'pylsp-all': {
+				\    'workspace_config': {
+					\      'pylsp-all': {
+						\        'configurationSources': ['flake8'],
+						\        'plugins': {
+							\          'pylsp_mypy': { 'enabled': 1 }
+							\        }
+							\      }
+							\    }
+							\  }
+							\}
